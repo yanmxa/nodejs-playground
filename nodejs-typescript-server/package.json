@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-typescript-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.32",
+    "pm2": "^4.5.5",
+    "typescript": "^4.2.3"
+  }
+}
