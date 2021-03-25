@@ -1,59 +1,67 @@
-# Start a REST API with nodejs and typescript
+## Building a NodeJS, TypeScript Rest API with MySQL
 
-### Init the project
-
-```
-mkdir nodejs-typescript-api
-cd nodejs-typescript-api
-npm init --yes
-```
-
-### Install the typescript and tsc --init
+### Set up Node.js Project Environment
 
 ```
-sudo npm i -g typescript -D
-or npm i typescript -D
-
-tsc --init
+mkdir *
+cd *
+npm init -y
+npm install express body-parser mysql2 dotenv
+npm install typescript --save-dev
+npm install @types/node @types/express @types/body-parser @types/mysql @types/dotenv --save-dev
 ```
 
-### Compile the app.ts file to app.js file and run app.js
+initialize our project as a Typescript project
 
 ```
-tsc
-node app.js
+npx tsc --init
 ```
 
-### Install the @types/node
-
-[This package contains type definitions for Node.js](http://nodejs.org)
+This will add the tsconfig.json(Optional)
 
 ```
-npm install -D @types/node
-npm i @types/node -D
+"compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+}
 ```
 
-After install the @types/node pacakge you can use modules such as http
-
-### Run the watch to convert app.ts to app.js immediately
+modify the start srcipt in the package.json (Optional)
 
 ```
-command + shift + p  ->  Tasks: run build Task
-tsc: build - tsconfig.json
+"scripts": {
+    "start": "tsc && node dist/app.js",
+},
 ```
 
-### run app.js
+### Create the .env file
 
 ```
-node app.js
+PORT=3000
+DB_HOST="localhost"
+DB_USER="username"
+DB_PWD="****"
+DB_NAME="test"
 ```
 
-### Install pm2 and rerun app.js
+### Define new types for the API
+
+### Connect to the database
+
+db.ts
+
+### Define database operations
+
+### Dev
 
 ```
-npm -install pm2 -D
-npm install pm2@latest -g
+npm install -g nodemon
+npm install -g ts-node
 
-
-pm2-dev app.js
+nodemon -e ts,tsx --exec ts-node src/app.ts
 ```
